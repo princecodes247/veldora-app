@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Drawer from "../Drawer";
 import Header from "../Header";
+import Drawer from "../Drawer";
 
-function DashboardLayout({ children }) {
+function FormLayout({ children }) {
   return (
     <>
       <Header />
@@ -43,9 +43,16 @@ function DashboardLayout({ children }) {
           </ul>
         </div>
       </div>
-      <Drawer>{children}</Drawer>
+      <Drawer>
+        <div className="tabs">
+          <a className="tab tab-bordered">Tab 1</a>
+          <a className="tab tab-bordered tab-active">Tab 2</a>
+          <a className="tab tab-bordered">Tab 3</a>
+        </div>
+        {children}
+      </Drawer>
     </>
   );
 }
 
-export default DashboardLayout;
+export default FormLayout;
