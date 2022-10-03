@@ -1,57 +1,18 @@
 import { useState } from "react";
 import Header from "../Header";
 import Drawer from "../Drawer";
+import DashboardLayout from "./DashboardLayout";
 
 function FormLayout({ children }) {
   return (
-    <>
-      <Header />
-      <div className="navbar bg-base-100">
-        <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-        </div>
-        <div className="flex-none">
-          <ul className="menu menu-horizontal p-0">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2 bg-base-100">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
+    <DashboardLayout>
+      <div className="tabs">
+        <a className="tab tab-bordered">Tab 1</a>
+        <a className="tab tab-bordered tab-active">Tab 2</a>
+        <a className="tab tab-bordered">Tab 3</a>
       </div>
-      <Drawer>
-        <div className="tabs">
-          <a className="tab tab-bordered">Tab 1</a>
-          <a className="tab tab-bordered tab-active">Tab 2</a>
-          <a className="tab tab-bordered">Tab 3</a>
-        </div>
-        {children}
-      </Drawer>
-    </>
+      {children}
+    </DashboardLayout>
   );
 }
 
