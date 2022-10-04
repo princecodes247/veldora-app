@@ -38,21 +38,23 @@ function Drawer({ children, currentWorkspace }) {
         {/* <!-- Page content here --> */}
         {children}
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side border">
         <label htmlFor="my-drawer-2" className="drawer-overlay">
           {currentWorkspace}
         </label>
         {/* <div className="bg-base-100 text-base-content inline md:flex flex-col gap-4"> */}
-        <ul className="menu bg-base-100  p-4 overflow-y-auto gap-1 w-80 ">
-          <button className="btn btn-primary  my-12">Create Project</button>
+        <ul className="menu bg-base-200  p-4 pr-0 overflow-y-auto gap-1 w-80 ">
+          <button className="btn btn-primary mr-4 my-12">Create Project</button>
           {/* <!-- Sidebar content here --> */}
           {links.map((link) => (
             <li
-              className={`rounded ${
+              className={`rounded rounded-r-none hover:rounded-r-none ${
                 isActive(link?.path) ? "bg-blue-100" : "bg-transparent"
               }`}
             >
-              <Link to={`${link?.path}`}>{link?.name}</Link>
+              <Link className="hover:rounded-r-none" to={`${link?.path}`}>
+                {link?.name}
+              </Link>
             </li>
           ))}
         </ul>

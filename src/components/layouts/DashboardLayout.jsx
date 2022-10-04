@@ -1,25 +1,27 @@
 import { useEffect, useState, createContext } from "react";
 import Drawer from "../Drawer";
 import Header from "../Header";
-import { getWorkspaceData, getUserWorkspaces } from "../../operations/index";
+// import { getWorkspaceData, getUserWorkspaces } from "../../operations/index";
 
 function DashboardLayout({ children }) {
-  const [workspaceData, setWorkspaceData] = useState({});
+  // const [workspaceData, setWorkspaceData] = useState({});
 
-  useEffect(() => {
-    const data = getWorkspaceData("test");
-    setWorkspaceData(data);
-    return;
-  }, []);
+  // useEffect(() => {
+  //   const data = getWorkspaceData("test");
+  //   setWorkspaceData(data);
+  //   return;
+  // }, []);
 
-  const WorkspaceContext = createContext({});
+  // const WorkspaceContext = createContext({});
 
   return (
-    <WorkspaceContext.Provider>
+    // <WorkspaceContext.Provider>
+    <>
       <Header />
 
       <Drawer>{children}</Drawer>
-    </WorkspaceContext.Provider>
+    </>
+    // </WorkspaceContext.Provider>
   );
 }
 

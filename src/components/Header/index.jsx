@@ -2,8 +2,8 @@ import { useState } from "react";
 
 function Header() {
   return (
-    <div className="navbar px-6 flex bg-base-100">
-      <div className="navbar-start">
+    <div className="navbar pl-0 py-0 px-6 flex bg-base-100">
+      <div className="navbar-start  self-stretch ">
         <div className="dropdown">
           <label
             htmlFor="my-drawer-2"
@@ -66,7 +66,7 @@ function Header() {
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden w-full lg:flex flex-1">
+      <div className="navbar-center ml-6 pl-6 my-3 hidden w-full lg:flex flex-1">
         <div className="searchbar border w-[38vw] flex items-center p-1 px-2 rounded">
           <input
             type="text"
@@ -97,7 +97,7 @@ function Header() {
           <li>DOCS</li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end my-3">
         <ul className="menu menu-horizontal p-0">
           <li tabIndex={0}>
             <a>

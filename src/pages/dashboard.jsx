@@ -1,34 +1,35 @@
-import { useState } from "react";
-import { Header } from "../components";
+import { useEffect, useState } from "react";
+import { Header, ProjectCard } from "../components";
 import DashboardLayout from "../components/layouts/DashboardLayout";
+import { getUserProjects } from "../operations";
 
 function Dashboard() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getUserProjects();
+      setProjects(projects);
+    };
+    fetchProjects();
+  }, []);
   return (
-    <>
-      <DashboardLayout>
-        <section>
-          <div className="flex flex-col justify-between gap-4 pt-6">
-            <div className="flex flex-col gap-12 md:flex-row">
-              <div className="flex flex-col gap-6 gap-4">
-                <p>Member</p>
-                <p>Member</p>
-                <p>Member</p>
-                <button className="btn">Add Member</button>
-              </div>
-              <div className="flex gap-4">
-                <p>Qouta:</p>
-                -----------
-                <p>Used:</p>
-                -----------
-              </div>
-            </div>
-            <div className="">
-              <h2>Latest Submissions</h2>
+    <DashboardLayout>
+      <section>
+        <div className="flex flex-col justify-between gap-4 pt-6">
+          <div className="p-8 flex items-center justify-center bg-base-300 rounded h-48">
+            Stuff
+          </div>
+          <div className="">
+            <h2>Latest Submissions</h2>
+            <div className="grid">
+              {projects.map((project) => (
+                <ProjectCard />
+              ))}
             </div>
           </div>
-        </section>
-      </DashboardLayout>
-    </>
+        </div>
+      </section>
+    </DashboardLayout>
   );
 }
 

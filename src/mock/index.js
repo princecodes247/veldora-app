@@ -1,4 +1,4 @@
-import forms from "./forms";
+import projects from "./projects";
 import workspaces from "./workspaces";
 
-export { forms, workspaces };
+export { projects, workspaces };

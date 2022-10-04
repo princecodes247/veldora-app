@@ -1,14 +1,14 @@
-import { forms, workspaces } from "../mock";
+import { projects, workspaces } from "../mock";
 
 export const getWorkspaceData = (id) => {
   console.log(id);
   return {
     members: [],
     quota: 200,
-    forms,
+    projects,
   };
 };
 
-export const getUserWorkspaces = () => {
-  return workspaces;
+export const getUserProjects = async () => {
+  return projects;
 };
