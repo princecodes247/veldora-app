@@ -5,7 +5,8 @@ function Drawer({ children, currentWorkspace }) {
   const location = useLocation();
   const isActive = (path) => {
     console.log(location.pathname);
-    if (location.pathname === path) {
+    if (path === location.pathname) return true;
+    if (path !== "/" && location.pathname.includes(path)) {
       return true;
     } else {
       return false;
@@ -14,7 +15,7 @@ function Drawer({ children, currentWorkspace }) {
   currentWorkspace = currentWorkspace || "";
   const links = [
     {
-      name: "Overview",
+      name: "Dashboard",
       path: "/",
     },
     {
@@ -35,7 +36,6 @@ function Drawer({ children, currentWorkspace }) {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content p-8">
         {/* <!-- Page content here --> */}
-        momo
         {children}
       </div>
       <div className="drawer-side">

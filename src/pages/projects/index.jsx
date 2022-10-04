@@ -1,11 +1,12 @@
 import FormLayout from "../../components/layouts/FormLayout";
+import Table from "../../components/Table";
 
-function FormSettings() {
+function Projects() {
   return (
     <FormLayout>
-      <section>settings</section>
+      <section></section>
     </FormLayout>
   );
 }
 
-export default FormSettings;
+export default Projects;

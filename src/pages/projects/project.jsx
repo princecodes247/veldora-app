@@ -1,7 +1,7 @@
 import FormLayout from "../../components/layouts/FormLayout";
 import Table from "../../components/Table";
 
-function Form() {
+function Project() {
   return (
     <FormLayout>
       <section>
@@ -12,4 +12,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default Project;

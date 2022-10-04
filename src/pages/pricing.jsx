@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Error() {
+function Pricing() {
   return (
     <>
       <section>
@@ -12,4 +12,4 @@ function Error() {
   );
 }
 
-export default Error;
+export default Pricing;
