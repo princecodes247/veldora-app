@@ -33,7 +33,7 @@ function Header() {
               <div className="searchbar border flex items-center p-1 px-2 rounded">
                 <input
                   type="text"
-                  className="p-4 py-3 flex-1 bg-transparent outline-none"
+                  className="p-4 py-3 grow bg-transparent outline-none"
                   placeholder="Search here..."
                 />
                 <button className="btn btn-primary rounded-lg px-8">
