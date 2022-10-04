@@ -38,7 +38,7 @@ function Drawer({ children, currentWorkspace }) {
         {/* <!-- Page content here --> */}
         {children}
       </div>
-      <div className="drawer-side border">
+      <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay">
           {currentWorkspace}
         </label>

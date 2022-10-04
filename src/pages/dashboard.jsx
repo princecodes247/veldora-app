@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { Header, ProjectCard } from "../components";
 import DashboardLayout from "../components/layouts/DashboardLayout";
+import { useAsync } from "../hooks";
 import { getUserProjects } from "../operations";
 
 function Dashboard() {
-  const [projects, setProjects] = useState([]);
+  // const [projects, setProjects] = useState([]);
+
+  const { isLoading, status, value, error, execute } = getUserProjects();
   useEffect(() => {
-    const fetchProjects = async () => {
-      const projects = await getUserProjects();
-      setProjects(projects);
-    };
-    fetchProjects();
+    execute();
+    console.log(value);
+    //   //   const fetchProjects = async () => {
+    //   //     setProjects(projects);
+    //   //   };
+    //   //   fetchProjects();
   }, []);
   return (
     <DashboardLayout>
@@ -21,11 +25,7 @@ function Dashboard() {
           </div>
           <div className="">
             <h2>Latest Submissions</h2>
-            <div className="grid">
-              {projects.map((project) => (
-                <ProjectCard />
-              ))}
-            </div>
+            {/* <div className="grid">{!isLoading && value}</div> */}
           </div>
         </div>
       </section>

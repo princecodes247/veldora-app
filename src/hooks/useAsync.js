@@ -1,4 +1,7 @@
-export default useAsync = (asyncFunction, immediate = true) => {
+import { useEffect, useState, useCallback } from "react";
+
+const useAsync = (asyncFunction, immediate = false) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("idle");
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
@@ -8,17 +11,20 @@ export default useAsync = (asyncFunction, immediate = true) => {
   // useCallback ensures the below useEffect is not called
   // on every render, but only if asyncFunction changes.
   const execute = useCallback(() => {
+    setIsLoading(true);
     setStatus("pending");
     setValue(null);
     setError(null);
 
     return asyncFunction()
       .then((response) => {
+        setIsLoading(false);
         setValue(response);
         setStatus("success");
       })
       .catch((error) => {
         setError(error);
+        setIsLoading(false);
         setStatus("error");
       });
   }, [asyncFunction]);
@@ -32,5 +38,7 @@ export default useAsync = (asyncFunction, immediate = true) => {
     }
   }, [execute, immediate]);
 
-  return { execute, status, value, error };
+  return { isLoading, status, value, error, execute };
 };
+
+export default useAsync;
