@@ -1,4 +1,6 @@
 import { projects, workspaces } from "../mock";
+import { useEffect, useState, useCallback } from "react";
+
 import { useAsync } from "../hooks";
 
 export const getWorkspaceData = (id) => {
@@ -16,17 +18,17 @@ export const getUserProjects = () => {
       setTimeout(() => {
         const rnd = Math.random() * 10;
         console.log(rnd);
-
-        rnd <= 5
-          ? resolve("Submitted successfully 🙌")
-          : reject("Oh no there was an error 😞");
+        resolve(projects);
+        // rnd <= 5 ? resolve(projects) : reject({});
       }, 2000);
     });
   };
 
-  const { isLoading, status, value, error, execute } = useAsync(test);
-  // execute();
-  const result = { status, value };
-  console.log({ isLoading, result, error, execute });
-  return { isLoading, status, value, error, execute };
+  const { isLoading, status, value, error, execute } = useAsync(test, []);
+  useEffect(() => {
+    // execute();
+    console.log("nack");
+  }, []);
+
+  return { isLoading, status, projects: value, error };
 };

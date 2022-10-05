@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 
-const useAsync = (asyncFunction, immediate = false) => {
+const useAsync = (asyncFunction, initialValue = null) => {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("idle");
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(initialValue);
   const [error, setError] = useState(null);
 
   // The execute function wraps asyncFunction and
@@ -13,7 +13,7 @@ const useAsync = (asyncFunction, immediate = false) => {
   const execute = useCallback(() => {
     setIsLoading(true);
     setStatus("pending");
-    setValue(null);
+    setValue(initialValue);
     setError(null);
 
     return asyncFunction()
@@ -28,15 +28,6 @@ const useAsync = (asyncFunction, immediate = false) => {
         setStatus("error");
       });
   }, [asyncFunction]);
-
-  // Call execute if we want to fire it right away.
-  // Otherwise execute can be called later, such as
-  // in an onClick handler.
-  useEffect(() => {
-    if (immediate) {
-      execute();
-    }
-  }, [execute, immediate]);
 
   return { isLoading, status, value, error, execute };
 };

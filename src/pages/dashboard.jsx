@@ -7,15 +7,8 @@ import { getUserProjects } from "../operations";
 function Dashboard() {
   // const [projects, setProjects] = useState([]);
 
-  const { isLoading, status, value, error, execute } = getUserProjects();
-  useEffect(() => {
-    execute();
-    console.log(value);
-    //   //   const fetchProjects = async () => {
-    //   //     setProjects(projects);
-    //   //   };
-    //   //   fetchProjects();
-  }, []);
+  const { isLoading, status, projects, error } = getUserProjects();
+
   return (
     <DashboardLayout>
       <section>
@@ -25,7 +18,9 @@ function Dashboard() {
           </div>
           <div className="">
             <h2>Latest Submissions</h2>
-            {/* <div className="grid">{!isLoading && value}</div> */}
+            <div className="grid">
+              {!isLoading && projects.map((item) => <div>s</div>)}
+            </div>
           </div>
         </div>
       </section>
