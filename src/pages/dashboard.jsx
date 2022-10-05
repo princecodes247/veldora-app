@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { Header, ProjectCard } from "../components";
 import DashboardLayout from "../components/layouts/DashboardLayout";
-import ProjectGrid from "../components";
+import { ProjectGrid } from "../components";
 import { useAsync } from "../hooks";
 import { getUserProjects } from "../operations";
 
 function Dashboard() {
-  // const [projects, setProjects] = useState([]);
-
   const userProjects = getUserProjects();
 
   return (
