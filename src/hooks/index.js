@@ -6,6 +6,7 @@ import useLocalStorage from "./useLocalStorage";
 import useLockBodyScroll from "./useLockBodyScroll";
 import useOnClickOutside from "./useOnClickOutside";
 import useOnScreen from "./useOnScreen";
+import useCurrentPage from "./useCurrentPage";
 
 export {
   useAsync,
@@ -17,4 +18,5 @@ export {
   useLockBodyScroll,
   useOnClickOutside,
   useOnScreen,
+  useCurrentPage,
 };

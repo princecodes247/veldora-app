@@ -1,5 +1,5 @@
 import FormLayout from "../../components/layouts/FormLayout";
-import Table from "../../components/Table";
+import { Table } from "../../components";
 
 function Project() {
   return (

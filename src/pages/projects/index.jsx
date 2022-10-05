@@ -1,5 +1,5 @@
 import DashboardLayout from "../../components/layouts/DashboardLayout";
-import ProjectGrid from "../../components/ProjectGrid";
+import { ProjectGrid } from "../../components";
 import { getUserProjects } from "../../operations";
 function Projects() {
   const userProjects = getUserProjects();

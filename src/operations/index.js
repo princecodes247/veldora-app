@@ -18,8 +18,9 @@ export const getUserProjects = () => {
       setTimeout(() => {
         const rnd = Math.random() * 10;
         console.log("from getUserProjects" + rnd);
-        // resolve(projects);
-        rnd <= 8 ? resolve(projects) : reject("An Error Occured");
+        resolve(projects);
+        // reject("An Error Occured");
+        rnd <= 6 ? resolve(projects) : reject("An Error Occured");
       }, 2000);
     });
   };

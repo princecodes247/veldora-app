@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Header, ProjectCard } from "../components";
 import DashboardLayout from "../components/layouts/DashboardLayout";
-import ProjectGrid from "../components/ProjectGrid";
+import ProjectGrid from "../components";
 import { useAsync } from "../hooks";
 import { getUserProjects } from "../operations";
 
