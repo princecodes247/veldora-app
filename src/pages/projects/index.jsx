@@ -1,11 +1,13 @@
-import FormLayout from "../../components/layouts/FormLayout";
+import DashboardLayout from "../../components/layouts/DashboardLayout";
 import Table from "../../components/Table";
 
 function Projects() {
   return (
-    <FormLayout>
-      <section></section>
-    </FormLayout>
+    <DashboardLayout>
+      <section>
+        <div className="p-8 rounded bg-black">kkk</div>
+      </section>
+    </DashboardLayout>
   );
 }
 

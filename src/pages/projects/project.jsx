@@ -5,7 +5,6 @@ function Project() {
   return (
     <FormLayout>
       <section>
-        Table
         <Table></Table>
       </section>
     </FormLayout>

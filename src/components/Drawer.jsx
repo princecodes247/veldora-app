@@ -1,34 +1,26 @@
 import { Link, useLocation } from "react-router-dom";
+import useCurrentPage from "../hooks/useCurrentPage";
 
 function Drawer({ children, currentWorkspace }) {
   // Check the current url from react-router-dom useLocation hook
-  const location = useLocation();
-  const isActive = (path) => {
-    console.log(location.pathname);
-    if (path === location.pathname) return true;
-    if (path !== "/" && location.pathname.includes(path)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const currPage = useCurrentPage(1);
   currentWorkspace = currentWorkspace || "";
   const links = [
     {
       name: "Dashboard",
-      path: "/",
+      path: "",
     },
     {
       name: "Projects",
-      path: "/projects",
+      path: "projects",
     },
     {
       name: "Settings",
-      path: `/settings`,
+      path: `settings`,
     },
     {
       name: "Help",
-      path: "/help",
+      path: "help",
     },
   ];
   return (
@@ -49,10 +41,10 @@ function Drawer({ children, currentWorkspace }) {
           {links.map((link) => (
             <li
               className={`rounded rounded-r-none hover:rounded-r-none ${
-                isActive(link?.path) ? "bg-blue-100" : "bg-transparent"
+                currPage === link?.path ? "bg-blue-100" : "bg-transparent"
               }`}
             >
-              <Link className="hover:rounded-r-none" to={`${link?.path}`}>
+              <Link className="hover:rounded-r-none" to={`/${link?.path}`}>
                 {link?.name}
               </Link>
             </li>
