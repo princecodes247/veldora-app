@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Header, ProjectCard } from "../components";
 import DashboardLayout from "../components/layouts/DashboardLayout";
+import ProjectGrid from "../components/ProjectGrid";
 import { useAsync } from "../hooks";
 import { getUserProjects } from "../operations";
 
 function Dashboard() {
   // const [projects, setProjects] = useState([]);
 
-  const { isLoading, status, projects, error } = getUserProjects();
+  const userProjects = getUserProjects();
 
   return (
     <DashboardLayout>
@@ -18,9 +19,7 @@ function Dashboard() {
           </div>
           <div className="">
             <h2>Latest Submissions</h2>
-            <div className="grid">
-              {!isLoading && projects.map((item) => <div>s</div>)}
-            </div>
+            <ProjectGrid {...userProjects} />
           </div>
         </div>
       </section>

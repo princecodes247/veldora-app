@@ -1,11 +1,13 @@
 import DashboardLayout from "../../components/layouts/DashboardLayout";
-import Table from "../../components/Table";
-
+import ProjectGrid from "../../components/ProjectGrid";
+import { getUserProjects } from "../../operations";
 function Projects() {
+  const userProjects = getUserProjects();
+
   return (
     <DashboardLayout>
       <section>
-        <div className="p-8 rounded bg-black">kkk</div>
+        <ProjectGrid {...userProjects} />
       </section>
     </DashboardLayout>
   );

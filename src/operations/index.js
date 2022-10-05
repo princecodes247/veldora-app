@@ -17,16 +17,16 @@ export const getUserProjects = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const rnd = Math.random() * 10;
-        console.log(rnd);
-        resolve(projects);
-        // rnd <= 5 ? resolve(projects) : reject({});
+        console.log("from getUserProjects" + rnd);
+        // resolve(projects);
+        rnd <= 8 ? resolve(projects) : reject("An Error Occured");
       }, 2000);
     });
   };
 
   const { isLoading, status, value, error, execute } = useAsync(test, []);
   useEffect(() => {
-    // execute();
+    execute();
     console.log("nack");
   }, []);
 
