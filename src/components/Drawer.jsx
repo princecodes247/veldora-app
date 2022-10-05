@@ -41,10 +41,15 @@ function Drawer({ children, currentWorkspace }) {
           {links.map((link) => (
             <li
               className={`rounded rounded-r-none hover:rounded-r-none ${
-                currPage === link?.path ? "bg-blue-100" : "bg-transparent"
+                currPage === link?.path
+                  ? "bg-base-100 hover:bg-base-100 bordered group"
+                  : "bg-transparent"
               }`}
             >
-              <Link className="hover:rounded-r-none" to={`/${link?.path}`}>
+              <Link
+                className="group-hover:bg-base-100 hover:bg-base-50 "
+                to={`/${link?.path}`}
+              >
                 {link?.name}
               </Link>
             </li>

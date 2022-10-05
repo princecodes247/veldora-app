@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -92,9 +93,15 @@ function Header() {
         </div>
 
         <ul className="flex gap-4 items-center text-sm ml-8">
-          <li>HOME</li>
-          <li>ABOUT</li>
-          <li>DOCS</li>
+          <li>
+            <Link to={"/"}>HOME</Link>
+          </li>
+          <li>
+            <Link to={"/about"}>ABOUT</Link>
+          </li>
+          <li>
+            <Link to={"/docs"}>DOCS</Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end my-3">
