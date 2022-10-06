@@ -7,6 +7,10 @@ function Projects() {
   return (
     <DashboardLayout>
       <section>
+        <div className="flex text-xl gap-4">
+          <h1>Projects</h1>
+          <h1>{userProjects.projects.length}</h1>
+        </div>
         <ProjectGrid {...userProjects} />
       </section>
     </DashboardLayout>

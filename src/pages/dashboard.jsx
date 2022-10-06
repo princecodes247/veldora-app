@@ -16,7 +16,7 @@ function Dashboard() {
             Stuff
           </div>
           <div className="">
-            <h2>Latest Submissions</h2>
+            <h2 className="text-xl font-semibold mt-9">Latest Submissions</h2>
             <ProjectGrid {...userProjects} />
           </div>
         </div>
