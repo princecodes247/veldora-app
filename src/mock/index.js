@@ -1,4 +1,5 @@
 import projects from "./projects";
 import workspaces from "./workspaces";
+import submissions from "./submissions";
 
-export { projects, workspaces };
+export { projects, submissions, workspaces };
