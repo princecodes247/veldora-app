@@ -3,6 +3,8 @@
 - [ ] Create project settings page
 - [ ] Add pagination to project submissions list
 - [ ] Create modal for create a project
+- [ ] Add ESLint
+- [ ] Replace SVGs with react-icons
 - [ ] Create Auth Providers
 - [ ] Create Auth pages
 - [ ] Connect to backend
@@ -11,4 +13,4 @@
 - [ ] Create How to use page
 - [ ] Create Homepage
 - [ ] Create About page
-- [ ] Add ESLint
+- [ ] Add Transitions with framer motion

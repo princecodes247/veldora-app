@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.3",
     "daisyui": "^2.31.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
