@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Label from "../Label";
+import Label from "./Label";
 
 function ProjectCard({ name, id, status, desc, submissions, type }) {
   return (
