@@ -6,7 +6,7 @@ import { useAsync } from "../hooks";
 import { getUserProjects } from "../operations";
 
 function Dashboard() {
-  const userProjects = getUserProjects(1, 3);
+  const userProjects = getUserProjects("", 1, 3);
 
   return (
     <DashboardLayout>

@@ -1,11 +1,13 @@
+import { useState } from "react";
 import FormLayout from "../../components/layouts/FormLayout";
-import { Table } from "../../components";
+import { PaginationBar, Table } from "../../components";
 import { getProjectSubmissions } from "../../operations";
 import { useParams } from "react-router-dom";
 
 function Project() {
   let { projectId } = useParams();
-  const result = getProjectSubmissions(projectId);
+  const [page, setPage] = useState(1);
+  const result = getProjectSubmissions(projectId, page);
   // Flatten each submission in the result to a single row
   const rows = result?.submissions?.map((submission) => {
     const row = {};
@@ -24,6 +26,7 @@ function Project() {
     <FormLayout>
       <section>
         <Table isLoading={result.isLoading} list={rows}></Table>
+        <PaginationBar {...result.controls} onPageChange={setPage} />
       </section>
     </FormLayout>
   );

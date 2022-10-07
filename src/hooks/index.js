@@ -7,6 +7,7 @@ import useLockBodyScroll from "./useLockBodyScroll";
 import useOnClickOutside from "./useOnClickOutside";
 import useOnScreen from "./useOnScreen";
 import useCurrentPage from "./useCurrentPage";
+import { DOTS, usePagination } from "./usePagination";
 
 export {
   useAsync,
@@ -19,4 +20,6 @@ export {
   useOnClickOutside,
   useOnScreen,
   useCurrentPage,
+  usePagination,
+  DOTS,
 };

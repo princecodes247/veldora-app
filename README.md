@@ -2,9 +2,10 @@
 
 - [ ] Create project settings page
 - [x] Use React Query for queries
-- [ ] Add pagination to project submissions list
+- [x] Implement pagination
 - [ ] Create modal for create a project
 - [ ] Add ESLint
+- [ ] Create default error handler for react router
 - [ ] Replace SVGs with react-icons
 - [ ] Create Auth Providers
 - [ ] Create Auth pages
