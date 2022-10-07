@@ -2,55 +2,37 @@ import { projects, workspaces, submissions } from "../mock";
 import { useEffect, useState, useCallback } from "react";
 
 import { useAsync } from "../hooks";
+import { useQuery } from "@tanstack/react-query";
 
-export const getWorkspaceData = (id) => {
-  console.log(id);
-  return {
-    members: [],
-    quota: 200,
-    projects,
-  };
+const test = (page, limit, target = []) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const rnd = Math.random() * 10;
+      console.log("from getUserProjects" + rnd);
+      // Paginate projects
+      const start = (page - 1) * limit;
+      const end = start + limit;
+      const data = target.slice(start, end);
+      console.log(projects, data);
+      rnd <= 6 ? resolve(data) : reject("An Error Occured");
+    }, 2000);
+  });
 };
 
-export const getUserProjects = () => {
-  const test = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const rnd = Math.random() * 10;
-        console.log("from getUserProjects" + rnd);
-        // resolve(projects);
-        // reject("An Error Occured");
-        rnd <= 6 ? resolve(projects) : reject("An Error Occured");
-      }, 2000);
-    });
-  };
+export const getUserProjects = (userId = "", page = 1, limit = 10) => {
+  const { isLoading, data, error } = useQuery(
+    [userId, "user-projects", { page, limit }],
+    () => test(page, limit, projects)
+  );
 
-  const { isLoading, status, value, error, execute } = useAsync(test, []);
-  useEffect(() => {
-    execute();
-    console.log("nack");
-  }, []);
-
-  return { isLoading, status, projects: value, error };
+  return { isLoading, projects: data, error };
 };
 
-export const getProjectSubmissions = () => {
-  const test = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const rnd = Math.random() * 10;
-        console.log("from getProjectSubmissions" + rnd);
-        // resolve(submissions);
-        // reject("An Error Occured");
-        rnd <= 6 ? resolve(submissions) : reject("An Error Occured");
-      }, 2000);
-    });
-  };
+export const getProjectSubmissions = (projectId = "", page = 1, limit = 10) => {
+  const { isLoading, data, error } = useQuery(
+    ["project-submissions", projectId, { page, limit }],
+    () => test(page, limit, submissions)
+  );
 
-  const { isLoading, status, value, error, execute } = useAsync(test, []);
-  useEffect(() => {
-    execute();
-  }, []);
-
-  return { isLoading, status, submissions: value, error };
+  return { isLoading, submissions: data, error };
 };

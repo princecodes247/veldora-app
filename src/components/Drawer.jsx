@@ -34,6 +34,7 @@ function Drawer({ currentWorkspace }) {
         {/* <!-- Sidebar content here --> */}
         {links.map((link) => (
           <li
+            key={link.name}
             className={`rounded rounded-r-none hover:rounded-r-none ${
               currPage === link?.path
                 ? "bg-base-100 hover:bg-base-100 bordered group"

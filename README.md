@@ -1,6 +1,7 @@
 ## TODO
 
 - [ ] Create project settings page
+- [x] Use React Query for queries
 - [ ] Add pagination to project submissions list
 - [ ] Create modal for create a project
 - [ ] Add ESLint

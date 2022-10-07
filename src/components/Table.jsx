@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Table({ isLoading, list }) {
   // Get all the unique keys from the list
+  list = list || [];
   const keys = list.reduce((acc, item) => {
     return [...new Set([...acc, ...Object.keys(item)])];
   }, []);
@@ -18,7 +19,7 @@ function Table({ isLoading, list }) {
               </label>
             </th>
             {keys.map((key) => (
-              <th>{key}</th>
+              <th key={key}>{key}</th>
             ))}
 
             <th></th>
@@ -34,14 +35,14 @@ function Table({ isLoading, list }) {
           )}
           {!isLoading &&
             list.map((item) => (
-              <tr>
+              <tr key={`${item.date} ${item.id}`}>
                 <th>
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </th>
                 {keys.map((key) => (
-                  <td>{item[key]}</td>
+                  <td key={key}>{item[key]}</td>
                 ))}
               </tr>
             ))}
