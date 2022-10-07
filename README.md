@@ -5,6 +5,7 @@
 - [ ] Add pagination to project submissions list
 - [ ] Create modal for create a project
 - [ ] Add ESLint
+- [ ] Create default error handler for react router
 - [ ] Replace SVGs with react-icons
 - [ ] Create Auth Providers
 - [ ] Create Auth pages
