@@ -1,8 +1,7 @@
-import { useState } from "react";
-
 function Table({ isLoading, list }) {
   // Get all the unique keys from the list
   list = list || [];
+
   const keys = list.reduce((acc, item) => {
     return [...new Set([...acc, ...Object.keys(item)])];
   }, []);
@@ -51,11 +50,9 @@ function Table({ isLoading, list }) {
         {/* <!-- foot --> */}
         <tfoot>
           <tr>
-            <th></th>
-            {keys.map((key) => (
+            {/* {keys.map((key) => (
               <th>{key}</th>
-            ))}
-            <th></th>
+            ))} */}
           </tr>
         </tfoot>
       </table>
