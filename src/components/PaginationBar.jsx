@@ -33,34 +33,41 @@ function PaginationBar(props) {
   return (
     <ul className="flex justify-center items-center gap-2">
       <li className={`${currentPage === 1 && "disabled"}`}>
-        <button disabled={currentPage === 1} onClick={onPrevious}>
-          <div className="p-4 bg-black" />
-        </button>
+        <button
+          className="p-4 bg-black"
+          disabled={currentPage === 1}
+          onClick={onPrevious}
+        ></button>
       </li>
-      {paginationRange.map((pageNumber) => {
-        if (pageNumber === DOTS) {
-          return <li className="p-4 dots">&#8230;</li>;
-        }
+      <div className="h-10 border flex rounded overflow-hidden">
+        {paginationRange.map((pageNumber) => {
+          if (pageNumber === DOTS) {
+            return (
+              <li className="h-full px-4 py-0 flex items-center dots">
+                &#8230;
+              </li>
+            );
+          }
 
-        return (
-          <li
-            className={`p-4 ${
-              pageNumber === currentPage && "bg-black text-white "
-            }`}
-            onClick={() => onPageChange(pageNumber)}
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
+          return (
+            <li
+              className={`h-full px-4 py-0 flex items-center hover:bg-base-300 ${
+                pageNumber === currentPage &&
+                "bg-black text-white hover:bg-black"
+              }`}
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </li>
+          );
+        })}
+      </div>
       <li className={`${currentPage === lastPage && "disabled"}`}>
         <button
           className="p-4 bg-black "
           disabled={currentPage === lastPage}
           onClick={onNext}
-        >
-          <div className="arrow right" />
-        </button>
+        ></button>
       </li>
     </ul>
   );
