@@ -3,10 +3,10 @@
 - [ ] Create project settings page
 - [x] Use React Query for queries
 - [x] Implement pagination
+- [ ] Replace SVGs with react-icons
 - [ ] Create modal for create a project
 - [ ] Add ESLint
 - [ ] Create default error handler for react router
-- [ ] Replace SVGs with react-icons
 - [ ] Create Auth Providers
 - [ ] Create Auth pages
 - [ ] Connect to backend

@@ -1,4 +1,5 @@
 import React from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { usePagination, DOTS } from "../hooks";
 function PaginationBar(props) {
   const {
@@ -37,7 +38,9 @@ function PaginationBar(props) {
           className="p-4 bg-black"
           disabled={currentPage === 1}
           onClick={onPrevious}
-        ></button>
+        >
+          <IoIosArrowBack />
+        </button>
       </li>
       <div className="h-10 border flex rounded overflow-hidden">
         {paginationRange.map((pageNumber) => {
@@ -67,7 +70,9 @@ function PaginationBar(props) {
           className="p-4 bg-black "
           disabled={currentPage === lastPage}
           onClick={onNext}
-        ></button>
+        >
+          <IoIosArrowForward />
+        </button>
       </li>
     </ul>
   );
