@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Label from "./Label";
 
@@ -21,7 +20,7 @@ function ProjectCard({ name, id, status, desc, submissions, type }) {
         <div className="">
           <Label />
         </div>
-        <div className="absolute -bottom-1 left-0 w-full p-1 bg-base-300"></div>
+        <div className="absolute -bottom-1 left-0 w-full p-1 bg-base-300" />
       </div>
     </Link>
   );

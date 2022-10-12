@@ -5,17 +5,28 @@ import { getUserProjects } from "../../operations";
 
 function Projects() {
   const [page, setPage] = useState(1);
-  const userProjects = getUserProjects("", page);
+  const { isLoading, projects, controls, error } = getUserProjects("", page);
+  const { currentPage, pageSize, totalCount } = controls;
 
   return (
     <DashboardLayout>
       <section>
         <div className="flex text-xl gap-4">
           <h1>Projects</h1>
-          <h1>{userProjects?.controls?.totalCount || 0}</h1>
+          <h1>{controls?.totalCount || 0}</h1>
         </div>
-        <ProjectGrid {...userProjects} />
-        <PaginationBar {...userProjects.controls} onPageChange={setPage} />
+        <ProjectGrid
+          isLoading={isLoading}
+          projects={projects}
+          controls={controls}
+          error={error}
+        />
+        <PaginationBar
+          currentPage={currentPage}
+          pageSize={pageSize}
+          totalCount={totalCount}
+          onPageChange={setPage}
+        />
       </section>
     </DashboardLayout>
   );

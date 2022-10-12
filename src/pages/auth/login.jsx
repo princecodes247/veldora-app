@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Login() {
   return (
     <section className="flex justify-center items-center h-screen">
@@ -11,8 +9,12 @@ function Login() {
           placeholder="Type here"
           className="input w-full"
         />
-        <button className="btn">Button</button>
-        <button className="btn btn-primary">Button</button>
+        <button type="button" className="btn">
+          Button
+        </button>
+        <button type="button" className="btn btn-primary">
+          Button
+        </button>
         {/* <button className="btn btn-secondary">Button</button>
 <button className="btn btn-accent">Button</button>
 <button className="btn btn-ghost">Button</button>

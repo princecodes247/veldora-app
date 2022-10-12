@@ -1,16 +1,16 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenuAlt2, HiSearch } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
+
 function Header() {
   return (
     <div className="navbar pl-0 py-0 px-6 flex bg-base-100">
       <div className="navbar-start  self-stretch ">
         <div className="dropdown">
           <label
-            htmlFor="my-drawer-2"
             tabIndex={0}
             className="btn drawer-button lg:hidden btn-ghost btn-circle"
+            htmlFor="my-drawer-2"
           >
             <HiMenuAlt2 />
           </label>
@@ -25,19 +25,22 @@ function Header() {
                   className="p-4 py-3 grow bg-transparent outline-none"
                   placeholder="Search here..."
                 />
-                <button className="btn btn-primary rounded-lg px-8">
+                <button
+                  type="button"
+                  className="btn btn-primary rounded-lg px-8"
+                >
                   <HiSearch />
                 </button>
               </div>
             </li>
             <li className="mt-6">
-              <a>Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a>About</a>
+              <a href="/">About</a>
             </li>
             <li>
-              <a>Docs</a>
+              <a href="/">Docs</a>
             </li>
           </ul>
         </div>
@@ -49,36 +52,36 @@ function Header() {
             className="p-4 py-3 flex-1 bg-transparent outline-none"
             placeholder="Search here..."
           />
-          <button className="btn btn-primary rounded-lg px-8">
+          <button type="button" className="btn btn-primary rounded-lg px-8">
             <HiSearch />
           </button>
         </div>
 
         <ul className="flex gap-4 items-center text-sm ml-8">
           <li>
-            <Link to={"/"}>HOME</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to={"/about"}>ABOUT</Link>
+            <Link to="/about">ABOUT</Link>
           </li>
           <li>
-            <Link to={"/docs"}>DOCS</Link>
+            <Link to="/docs">DOCS</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end my-3">
         <ul className="menu menu-horizontal p-0">
           <li tabIndex={0}>
-            <a>
+            <a href="/">
               <div className="rounded-full w-8 h-8 bg-black" />
               <IoIosArrowDown />
             </a>
             <ul className="-left-12 p-2">
               <li>
-                <a>Submenu 1</a>
+                <a href="/">Submenu 1</a>
               </li>
               <li>
-                <a>Submenu 2</a>
+                <a href="/">Submenu 2</a>
               </li>
             </ul>
           </li>

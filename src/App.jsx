@@ -1,6 +1,5 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Dashboard,
   Error,
@@ -10,11 +9,6 @@ import {
   ProjectSettings,
   Project,
 } from "./pages";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 
