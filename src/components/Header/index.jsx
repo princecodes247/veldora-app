@@ -19,7 +19,7 @@ function Header() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box"
           >
             <li>
-              <div className="searchbar border flex items-center p-1 px-2 rounded">
+              <div className="searchbar border-gray-600 flex items-center p-1 px-2 rounded">
                 <input
                   type="text"
                   className="p-4 py-3 grow bg-transparent outline-none"
@@ -46,7 +46,7 @@ function Header() {
         </div>
       </div>
       <div className="navbar-center ml-6 pl-6 my-3 hidden w-full lg:flex flex-1">
-        <div className="searchbar border w-[38vw] flex items-center p-1 px-2 rounded">
+        <div className="searchbar border border-base-300 w-[38vw] flex items-center p-1 px-2 rounded">
           <input
             type="text"
             className="p-4 py-3 flex-1 bg-transparent outline-none"
