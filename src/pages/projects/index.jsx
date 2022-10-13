@@ -11,7 +11,7 @@ function Projects() {
   return (
     <DashboardLayout>
       <section>
-        <div className="flex text-xl gap-4">
+        <div className="flex text-xl gap-4 pt-3">
           <h1>Projects</h1>
           <h1>{controls?.totalCount || 0}</h1>
         </div>
