@@ -36,7 +36,7 @@ function Drawer({ currentWorkspace = "" }) {
         {currentWorkspace}
       </label>
       {/* <div className="bg-base-100 text-base-content inline md:flex flex-col gap-4"> */}
-      <ul className="menu bg-base-200  p-4 pr-0 overflow-y-auto gap-1 w-80 ">
+      <ul className="menu bg-base-200  p-4 pr-0 overflow-y-auto gap-1 w-80 text-base-content">
         <button
           type="button"
           className="btn btn-primary mr-4 my-12"
@@ -48,16 +48,13 @@ function Drawer({ currentWorkspace = "" }) {
         {links.map((link) => (
           <li
             key={link.name}
-            className={`rounded rounded-r-none hover:rounded-r-none ${
+            className={` ${
               currPage === link?.path
                 ? "bg-base-100 hover:bg-base-100 bordered group"
                 : "bg-transparent"
             }`}
           >
-            <Link
-              className="group-hover:bg-base-100 hover:bg-base-50 "
-              to={`/${link?.path}`}
-            >
+            <Link className="rounded-none" to={`/${link?.path}`}>
               {link?.name}
             </Link>
           </li>

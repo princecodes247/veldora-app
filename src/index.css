@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.menu[class*=" p-"] li > *,
+.menu[class^="p-"] li > * {
+  @apply rounded-r-none;
+  @apply rounded-l;
+}
