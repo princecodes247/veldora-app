@@ -42,10 +42,10 @@ function Register() {
           Button
         </button> */}
         <button type="button" className="btn btn-primary">
-          Log In
+          Register
         </button>
         <div className="p-4 text-sm">
-          <Link to="/register" className="flex gap-2">
+          <Link to="/login" className="flex gap-2">
             <p>Already have an account? </p>
             <p className="text-primary underline">Click here</p>
           </Link>
