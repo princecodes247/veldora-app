@@ -2,19 +2,23 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
 export default function CreateProjectModal() {
-  let [isOpen, setIsOpen] = useState(true);
+  let [isOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  // function closeModal() {
+  //   setIsOpen(!isOpen);
+  // }
 
-  function openModal() {
-    setIsOpen(true);
+  // function openModal() {
+  //   setIsOpen(!isOpen);
+  // }
+
+  function toogleModal(){
+    setIsOpen(!isOpen);
   }
 
   return (
     <>
-      <Transition appear show={true} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
