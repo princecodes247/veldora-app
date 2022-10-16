@@ -37,14 +37,14 @@ function PaginationBar(props) {
       <li className={`${currentPage === 1 && "disabled"}`}>
         <button
           type="button"
-          className="p-4 bg-black"
+          className="h-10 w-10 flex items-center justify-center rounded-l bg-base-200 hover:bg-base-300 cursor-pointer"
           disabled={currentPage === 1}
           onClick={onPrevious}
         >
           <IoIosArrowBack />
         </button>
       </li>
-      <div className="h-10 border flex rounded overflow-hidden">
+      <div className="h-10 border-base-200 border flex rounded overflow-hidden">
         {paginationRange.map((pageNumber) => {
           if (pageNumber === DOTS) {
             return (
@@ -58,9 +58,9 @@ function PaginationBar(props) {
             <li>
               <button
                 type="button"
-                className={`h-full px-4 py-0 flex items-center hover:bg-base-300 ${
+                className={`h-full px-4 py-0 flex items-center ${
                   pageNumber === currentPage &&
-                  "bg-black text-white hover:bg-black"
+                  "bg-primary text-white hover:brightness-125"
                 }`}
                 onClick={() => onPageChange(pageNumber)}
               >
@@ -73,7 +73,7 @@ function PaginationBar(props) {
       <li className={`${currentPage === lastPage && "disabled"}`}>
         <button
           type="button"
-          className="p-4 bg-black "
+          className="h-10 w-10 flex items-center justify-center rounded-r bg-base-200 hover:bg-base-300 cursor-pointer"
           disabled={currentPage === lastPage}
           onClick={onNext}
         >
