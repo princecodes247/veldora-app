@@ -35,7 +35,10 @@ function FormLayout({ children }) {
   return (
     <DashboardLayout>
       <div className="flex gap-4 items-center mt-1">
-        <Link to="/projects" className="btn btn-circle">
+        <Link
+          to="/projects"
+          className="btn btn-circle bg-base-200 hover:bg-base-300 border-none"
+        >
           <BiArrowBack size={22} />
         </Link>
         <h1 className="text-xl">Project</h1>
