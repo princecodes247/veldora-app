@@ -1,4 +1,3 @@
-import useAsync from "./useAsync";
 import { useAuth, ProvideAuth } from "./useAuth";
 import useRequireAuth from "./useRequireAuth";
 import useDebounce from "./useDebounce";
@@ -10,7 +9,6 @@ import useCurrentPage from "./useCurrentPage";
 import { DOTS, usePagination } from "./usePagination";
 
 export {
-  useAsync,
   useAuth,
   ProvideAuth,
   useRequireAuth,

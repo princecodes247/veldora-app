@@ -1,3 +1,4 @@
 import CreateProjectModal from "./CreateProjectModal";
+import Modal from "./Modal";
 
-export { CreateProjectModal };
+export { CreateProjectModal, Modal };

@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import { Header, ProjectCard } from "../components";
-import DashboardLayout from "../components/layouts/DashboardLayout";
 import { ProjectGrid } from "../components";
-import { useAsync } from "../hooks";
+import DashboardLayout from "../components/layouts/DashboardLayout";
 import { getUserProjects } from "../operations";
 
 function Dashboard() {
-  const userProjects = getUserProjects("", 1, 3);
+  const { isLoading, projects, controls, error } = getUserProjects("", 1, 3);
 
   return (
     <DashboardLayout>
@@ -17,7 +14,12 @@ function Dashboard() {
           </div>
           <div className="">
             <h2 className="text-xl font-semibold mt-9">Latest Submissions</h2>
-            <ProjectGrid {...userProjects} />
+            <ProjectGrid
+              isLoading={isLoading}
+              projects={projects}
+              controls={controls}
+              error={error}
+            />
           </div>
         </div>
       </section>

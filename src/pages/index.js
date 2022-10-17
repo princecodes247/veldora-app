@@ -3,7 +3,7 @@ import Error from "./error";
 import Pricing from "./pricing";
 
 import Login from "./auth/login";
-import Signup from "./auth/signup";
+import Register from "./auth/register";
 
 import Project from "./projects/project";
 import Projects from "./projects";
@@ -13,7 +13,7 @@ export {
   Dashboard,
   Error,
   Login,
-  Signup,
+  Register,
   Pricing,
   Project,
   Projects,

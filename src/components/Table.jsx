@@ -1,6 +1,5 @@
-function Table({ isLoading, list }) {
+function Table({ isLoading, list = [] }) {
   // Get all the unique keys from the list
-  list = list || [];
 
   const keys = list.reduce((acc, item) => {
     return [...new Set([...acc, ...Object.keys(item)])];
@@ -21,7 +20,7 @@ function Table({ isLoading, list }) {
               <th key={key}>{key}</th>
             ))}
 
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody>
