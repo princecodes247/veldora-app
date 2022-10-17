@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins']
+      },
+      spacing: {
+        lg: '55rem',
+        textbox: '36.3rem'
+      }
+    },
   },
   plugins: [require("daisyui")],
 };

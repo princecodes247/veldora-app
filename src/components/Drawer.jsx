@@ -30,7 +30,7 @@ function Drawer({ currentWorkspace }) {
       </label>
       {/* <div className="bg-base-100 text-base-content inline md:flex flex-col gap-4"> */}
       <ul className="menu bg-base-200  p-4 pr-0 overflow-y-auto gap-1 w-80 ">
-        <button className="btn btn-primary mr-4 my-12">Create Project</button>
+        <label htmlFor="my-modal" className="btn no-animation btn-primary mr-4 my-12">Create Project</label>
         {/* <!-- Sidebar content here --> */}
         {links.map((link) => (
           <li

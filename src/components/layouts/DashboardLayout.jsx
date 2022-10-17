@@ -13,7 +13,7 @@ function DashboardLayout({ children }) {
         {children}
       </div>
       <Drawer />
-      {/* <CreateProjectModal /> */}
+      <CreateProjectModal />
     </div>
   );
 }
