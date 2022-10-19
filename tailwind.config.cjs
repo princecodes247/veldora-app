@@ -8,7 +8,9 @@ module.exports = {
       },
       spacing: {
         lg: '55rem',
-        textbox: '36.3rem'
+        textbox: '36.3rem',
+        sectwo: '21rem',
+        18: '4.5rem'
       }
     },
   },
