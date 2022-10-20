@@ -7,3 +7,8 @@
   @apply rounded-r-none;
   @apply rounded-l;
 }
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/Poppins-Regular.ttf");
+}
