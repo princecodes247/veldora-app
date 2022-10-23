@@ -17,7 +17,9 @@ function ProjectSettings() {
             <p>Project Schema</p>
             <input type="text" />
           </label>
-          <button className="btn">Save Changes</button>
+          <button type="button" className="btn">
+            Save Changes
+          </button>
         </form>
       </section>
     </FormLayout>
