@@ -4,7 +4,7 @@
 - [x] Use React Query for queries
 - [x] Implement pagination
 - [x] Replace SVGs with react-icons
-- [ ] Create modal for create a project
+- [x] Create modal for create a project
 - [ ] Add ESLint
 - [ ] Add prop-types
 - [ ] Create default error handler for react router

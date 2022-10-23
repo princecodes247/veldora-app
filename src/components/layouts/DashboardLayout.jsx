@@ -2,6 +2,7 @@ import { useState } from "react";
 import Drawer from "../Drawer";
 import Header from "../Header";
 import { GlobalModal } from "../modals/GlobalModal";
+import CreateProjectModal from "../modals/CreateProjectModal";
 
 function DashboardLayout({ children }) {
   return (
@@ -14,6 +15,7 @@ function DashboardLayout({ children }) {
           {children}
         </div>
         <Drawer />
+        <CreateProjectModal />
       </div>
     </GlobalModal>
   );

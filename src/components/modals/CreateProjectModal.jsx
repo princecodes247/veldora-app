@@ -1,91 +1,80 @@
-import { Dialog, Transition } from "@headlessui/react";
-import PropTypes from "prop-types";
-import { Fragment, useCallback } from "react";
-import { useGlobalModalContext } from "./GlobalModal";
+import {BsArrowRight} from "react-icons/bs"
 
-export default function CreateProjectModal({ isOpen = false, setIsOpen }) {
-  const closeModal = useCallback(() => {
-    setIsOpen(false);
-  }, [setIsOpen]);
-
-  const { hideModal, store } = useGlobalModalContext();
-  const { modalProps } = store || {};
-  const { title, confirmBtn } = modalProps || {};
-
-  const handleModalToggle = () => {
-    hideModal();
-  };
-
+export default function CreateProjectModal() {
   return (
-    <Transition appear show as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={closeModal}>
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
-        </Transition.Child>
+    <>
+      <input type="checkbox" id="my-modal" className="modal-toggle" />
+      <label htmlFor="my-modal" className="modal">
+        <label htmlFor="" className="modal-box bg-white rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto w-11/12">
+          <div className="p-6 bg-gray-200"></div> <br />
+          <h1 className="font-poppins text-2xl">Create a new Project</h1> <br /> <hr /> <br />
 
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <p>addnai</p>
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
-                >
-                  Create a new Project
-                </Dialog.Title>
-                <div className="border-t" />
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Registration Form: Lorem Ipsum is simply dummy text of the
-                    printing and typesetting industry. Lorem Ipsum has been the
-                    industry&apos;s standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled
-                    it to make a type specimen book. It has survived not only
-                    five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged.
-                  </p>
-                </div>
+          {/**Project Name Section */}
+          <div className="flex bg-transparent w-full items-end flex-wrap">
+            <div className="block font-poppins lg:m-0 mr-5 mt-4">
+              <p className="font-bold text-sm mb-3 ml-1">Creators Handle</p>
+              <div className="py-2 bg-gray-200 px-5">slick-codes</div>
+            </div>
+            <p className="font-bold mx-7 text-lg lg:block hidden">/</p>
+            <div className="block font-poppins lg:w-fit w-full mt-4">
+              <p className="font-bold text-sm mx-3 mb-3">Project Name</p>
+              <input 
+              type="text" 
+              className="input bg-white focus:outline-none text-sm text-gray-800 border-gray-600 rounded-sm h-10 m-0 lg:w-96 w-full" 
+              placeholder="Project Name"
+              />
+            </div>
+          </div> <br /><br />
 
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={closeModal}
-                  >
-                    Got it, thanks!
-                  </button>
-                </div>
-              </Dialog.Panel>
-            </Transition.Child>
+          {/**Description Section */}
+          <div className="font-poppins lg:ml-5">
+            <h3 className="font-bold text-lg">
+              Description <span className="font-normal text-sm text-gray-800">(optional)</span>
+            </h3>
+            <p className="text-gray-500 text-sm mt-1">Add a clear description of the project to help you remember.</p>
           </div>
-        </div>
-      </Dialog>
-    </Transition>
-  );
+          <input 
+          type="text" 
+          className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm" 
+          placeholder="Project Description"
+          /> <br /><br />
+
+          {/**Tag Section */}
+          <div className="font-poppins lg:ml-5">
+            <h3 className="font-bold text-lg">
+              Tag <span className="font-normal text-sm text-gray-800">(optional)</span>
+            </h3>
+            <p className="text-gray-500 text-sm mt-1">Add a tag to the project to help you remember.</p>
+          </div>
+          <input 
+          type="text" 
+          className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm" 
+          placeholder="Project Tag"
+          /> <br /><br />
+
+          {/**Project Type Section */}
+          <div className="font-poppins lg:ml-5">
+            <h3 className="font-bold text-lg">
+              Project Type <span className="font-normal text-sm text-gray-800">(optional)</span>
+            </h3>
+            <p className="text-gray-500 text-sm mt-1">Describe the type of project to help you remember.</p>
+          </div>
+          <select
+          className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm"
+          >
+            <option value="Registration Form">Registration Form</option>
+          </select> <br /><br />
+          <p className="lg:w-textbox text-gray-800 text-sm w-full">
+            Registration Form: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when <br /><br />
+
+            an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          </p> <br /><br /><br />
+
+          <button className="btn no-animation rounded-sm bg-gray-100 border-0 hover:bg-gray-200 text-black text-sm p-0 w-40 font-poppins">
+            Next <i className="text-lg"><BsArrowRight /></i>
+          </button>
+        </label>
+      </label>
+    </>
+  )
 }
-
-CreateProjectModal.propTypes = {
-  isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func.isRequired,
-};
-
-CreateProjectModal.defaultProps = {
-  isOpen: false,
-};
