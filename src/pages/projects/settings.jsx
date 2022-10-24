@@ -4,23 +4,33 @@ function ProjectSettings() {
   return (
     <FormLayout>
       <section>
-        <form action="">
-          <label>
+        <form action="" className="flex flex-col">
+          <label className="my-3 w-full">
             <p>Project Name</p>
-            <input type="text" />
+            <input
+              type="text"
+              className="p-3 mt-3 bg-base-200 rounded text-base-content w-full"
+              placeholder="Current Name"
+            />
           </label>
-          <label>
+          <label className="my-3 w-full">
             <p>Project Description</p>
-            <input type="text" />
+            <input
+              type="text"
+              className="p-3 mt-3 bg-base-200 rounded text-base-content w-full"
+            />
           </label>
-          <label>
-            <p>Project Schema</p>
-            <input type="text" />
-          </label>
-          <button type="button" className="btn">
+
+          <button type="button" className="btn btn-primary my-5">
             Save Changes
           </button>
         </form>
+        <label>
+          <p>Delete this project</p>
+          <button className="btn btn-error mt-3" type="button">
+            Delete Project
+          </button>
+        </label>
       </section>
     </FormLayout>
   );
