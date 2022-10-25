@@ -39,9 +39,6 @@ function Header() {
             <li>
               <a href="/">About</a>
             </li>
-            <li>
-              <a href="/">Docs</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -57,15 +54,12 @@ function Header() {
           </button>
         </div>
 
-        <ul className="flex gap-4 items-center text-sm ml-8">
+        <ul className="hidden xl:flex gap-4 items-center text-sm ml-8">
           <li>
             <Link to="/">HOME</Link>
           </li>
           <li>
             <Link to="/about">ABOUT</Link>
-          </li>
-          <li>
-            <Link to="/docs">DOCS</Link>
           </li>
         </ul>
       </div>
