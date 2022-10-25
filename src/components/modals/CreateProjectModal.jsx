@@ -6,6 +6,41 @@ import { useState } from "react";
 export default function CreateProjectModal() {
   const [nextPage, setNextPage] = useState(false);
   const [usernameOpen, setusernameOpen] = useState(false);
+  //Practice
+  const [firstSectionDetails, setFSecDetails] = useState({
+    'projectName': "",
+    'description': "",
+    'tag': "",
+    'type': "Registration Form"
+  })
+
+  //Function To Handle Input Changes
+  function StoreData(e, action){
+    switch(action){
+      case 'ADD_PROJECT_NAME':
+        setFSecDetails((details)=>{
+          details.projectName = e.target.value;
+        });
+        break;
+      case 'ADD_DESCRIPTION':
+        setFSecDetails((details)=>{
+          details.description = e.target.value;
+        });
+        break;
+      case 'ADD_TAG':
+        setFSecDetails((details)=>{
+          details.tag = e.target.value;
+        });
+        break;
+      case 'ADD_TYPE':
+        setFSecDetails((details)=>{
+          details.type = e.target.value;
+        });
+        break;
+      default:
+        return false;
+    }
+  }
 
   return (
     <>
@@ -31,6 +66,8 @@ export default function CreateProjectModal() {
                   type="text"
                   className="input bg-white focus:outline-none text-sm text-gray-800 border-gray-600 rounded-sm h-10 m-0 lg:w-96 w-full"
                   placeholder="Project Name"
+                  value={firstSectionDetails.projectName}
+                  //onChange={(e)=>{StoreData(e, 'ADD_PROJECT_NAME')}}
                 />
               </div>
             </div> <br /><br />
@@ -46,6 +83,7 @@ export default function CreateProjectModal() {
               type="text"
               className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm"
               placeholder="Project Description"
+              value={firstSectionDetails.description}
             /> <br /><br />
 
             {/**Tag Section */}
@@ -59,6 +97,7 @@ export default function CreateProjectModal() {
               type="text"
               className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm"
               placeholder="Project Tag"
+              value={firstSectionDetails.tag}
             /> <br /><br />
 
             {/**Project Type Section */}
@@ -71,7 +110,7 @@ export default function CreateProjectModal() {
             <select
               className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm"
             >
-              <option value="Registration Form">Registration Form</option>
+              <option value={firstSectionDetails.type}>{firstSectionDetails.type}</option>
             </select> <br /><br />
             <p className="lg:w-textbox text-gray-800 text-sm w-full">
               Registration Form: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when <br /><br />
