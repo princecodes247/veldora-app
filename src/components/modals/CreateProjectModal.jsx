@@ -34,9 +34,22 @@ export default function CreateProjectModal() {
 
   return (
     <>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <label htmlFor="my-modal" className="modal">
-        <label htmlFor="" className="modal-box bg-base-100 rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto overflow-x-hidden w-11/12">
+      <input
+        type="checkbox"
+        id="my-modal"
+        className="modal-toggle"
+        onClick={() => {
+          StoreData(null, 'CLEAR_ALL');
+          if (nextPage) {
+            setNextPage(!nextPage)
+          }
+        }}
+      />
+      <label htmlFor="my-modal" className="modal" >
+        <label
+          htmlFor=""
+          className="modal-box bg-base-100 rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto overflow-x-hidden w-11/12"
+        >
           <div className="p-6 bg-base-200" /> <br /> <br />
           {/** First Section Of Modal */}
           <div className={`w-full ${!nextPage ? "" : "hidden"}`}>
