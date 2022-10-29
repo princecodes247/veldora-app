@@ -2,8 +2,11 @@ import Drawer from "../Drawer";
 import Header from "../Header";
 import { GlobalModal } from "../modals/GlobalModal";
 import CreateProjectModal from "../modals/CreateProjectModal";
+import { useAuth } from "../../hooks";
 
 function DashboardLayout({ children }) {
+  const { user } = useAuth();
+  console.log(user);
   return (
     <GlobalModal>
       <div className="drawer drawer-mobile">

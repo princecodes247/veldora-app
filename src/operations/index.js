@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { projects, submissions } from "../mock";
+import AuthOperations from "./auth";
 
 const test = (page, limit, target = []) => {
   return new Promise((resolve, reject) => {
@@ -52,3 +53,5 @@ export const getProjectSubmissions = (projectId = "", page = 1, limit = 8) => {
     error,
   };
 };
+
+export { AuthOperations };

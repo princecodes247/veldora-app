@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks";
 
 function Login() {
+  const { signIn } = useAuth();
   return (
     <section className="flex justify-center items-center h-screen">
       <form className="flex flex-col border border-gray-500 gap-4 w-2/6 p-6 py-8 rounded">
