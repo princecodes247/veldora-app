@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import DashboardLayout from "./DashboardLayout";
@@ -7,9 +7,7 @@ import useCurrentPage from "../../hooks/useCurrentPage";
 function Tabs() {
   const currPage = useCurrentPage(3);
   const { projectId } = useParams();
-  useEffect(() => {
-    console.log(currPage);
-  }, []);
+  // useEffect(() => {}, []);
 
   return (
     <div className="tabs tabs-boxed w-fit my-4">

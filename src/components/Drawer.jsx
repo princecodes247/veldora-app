@@ -1,15 +1,7 @@
 import { Link } from "react-router-dom";
 import useCurrentPage from "../hooks/useCurrentPage";
-import { useGlobalModalContext, MODAL_TYPES } from "./modals/GlobalModal";
 
 function Drawer({ currentWorkspace = "" }) {
-  const { showModal } = useGlobalModalContext();
-  const createProjectModal = () => {
-    showModal(MODAL_TYPES.CREATE_PROJECT_MODAL, {
-      title: "Create instance form",
-      confirmBtn: "Save",
-    });
-  };
   // Check the current url from react-router-dom useLocation hook
   const currPage = useCurrentPage(1);
   const links = [

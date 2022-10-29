@@ -222,6 +222,7 @@ export default function CreateProjectModal() {
           <br />
           <div className="flex">
             <button
+              type="button"
               className={`btn no-animation mr-3 rounded-sm bg-gray-100 border-0 hover:bg-gray-200 text-black text-sm p-0 w-40 font-poppins ${
                 nextPage ? "" : "hidden"
               }`}
@@ -236,15 +237,14 @@ export default function CreateProjectModal() {
             </button>
 
             <button
+              type="button"
               className={`btn no-animation rounded-sm bg-gray-100 border-0 ${
                 !nextPage ? "hover:bg-gray-200" : "hover:bg-gray-100"
               } text-black text-sm p-0 w-40 font-poppins ${
                 !nextPage ? "" : "hidden"
               }`}
-              onClick={(e) => {
+              onClick={() => {
                 setNextPage(!nextPage);
-                console.log(nextPage);
-                // e.target.disabled = true;
               }}
             >
               Next{" "}
@@ -254,13 +254,12 @@ export default function CreateProjectModal() {
             </button>
 
             <button
+              type="button"
               className={`btn no-animation rounded-sm bg-gray-100 border-0 hover:bg-gray-200 text-black text-sm p-0 w-40 font-poppins ${
                 nextPage ? "" : "hidden"
               }`}
-              onClick={(e) => {
+              onClick={() => {
                 setNextPage(!nextPage);
-                console.log(nextPage);
-                // e.target.disabled = true;
               }}
             >
               Publish{" "}
