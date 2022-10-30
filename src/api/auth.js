@@ -17,6 +17,27 @@ const signUp = (name, email, password) => {
   });
 };
 
+export const refreshAccessTokenFn = async () => {
+  const response = await api.get("auth/refresh");
+  return response.data;
+};
+
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    const originalRequest = error.config;
+    const errMessage = error.response.data.message;
+    if (errMessage.includes("not logged in") && !originalRequest._retry) {
+      originalRequest._retry = true;
+      await refreshAccessTokenFn();
+      return authApi(originalRequest);
+    }
+    return Promise.reject(error);
+  }
+);
+
 const AuthAPI = { signIn, signOut, signUp };
 
 export default AuthAPI;

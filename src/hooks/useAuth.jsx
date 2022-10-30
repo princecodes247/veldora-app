@@ -16,17 +16,22 @@ function useProvideAuth() {
   // Wrap any Auth methods we want to use making sure ...
   // ... to save the user to state.
   const signin = (email, password) => {
-    return AuthAPI.signIn(email, password).then((response) => {
-      setUser(response.user);
-      return response.user;
-    });
+    return AuthAPI.signIn(email, password)
+      .then((response) => {
+        console.log(response?.data?.user);
+        setUser(response?.data?.user);
+        return response?.data?.user;
+      })
+      .catch(() => false);
   };
 
-  const signup = (email, password) => {
-    return AuthAPI.signUp(email, password).then((response) => {
-      setUser(response.user);
-      return response.user;
-    });
+  const signup = (name, email, password) => {
+    return AuthAPI.signUp(name, email, password)
+      .then((response) => {
+        setUser(response.user);
+        return response.user;
+      })
+      .catch(() => false);
   };
 
   const signout = () => {

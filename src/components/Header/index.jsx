@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { HiMenuAlt2, HiSearch } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
+import { useAuth } from "../../hooks";
 
 function Header() {
+  const { user } = useAuth();
+  console.log(user);
   return (
     <div className="navbar pl-0 py-0 px-6 flex bg-base-100">
       <div className="navbar-start  self-stretch ">
@@ -66,6 +69,7 @@ function Header() {
       <div className="navbar-end my-3">
         <ul className="menu menu-horizontal p-0">
           <li tabIndex={0}>
+            {/* <p>{user.name}</p> */}
             <a href="/">
               <div className="rounded-full w-8 h-8 bg-black" />
               <IoIosArrowDown />

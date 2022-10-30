@@ -2,8 +2,6 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://veldora-api.onrender.com/",
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
 });
-
+api.defaults.headers.common["Content-Type"] = "application/json";
 export default api;
