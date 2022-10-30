@@ -32,7 +32,7 @@ api.interceptors.response.use(
     if (errMessage.includes("not logged in") && !originalRequest._retry) {
       originalRequest._retry = true;
       await refreshAccessTokenFn();
-      return authApi(originalRequest);
+      return api(originalRequest);
     }
     return Promise.reject(error);
   }

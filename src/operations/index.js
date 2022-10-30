@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import api from "../api";
 import { projects, submissions } from "../mock";
 
 const test = (page, limit, target = []) => {
@@ -21,7 +22,8 @@ const test = (page, limit, target = []) => {
 export const getUserProjects = (userId = "", page = 1, limit = 10) => {
   const { isLoading, data, error } = useQuery(
     [userId, "user-projects", { page, limit }],
-    () => test(page, limit, projects)
+    // () => test(page, limit, projects)
+    () => api.projects.getUserProjects(page, limit)
   );
   return {
     isLoading,

@@ -1,7 +1,20 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "https://veldora-api.onrender.com/",
+const baseURL = "http://localhost:2021";
+// const baseURL = "https://veldora-api.onrender.com/";
+
+const authApi = axios.create({
+  baseURL,
 });
-api.defaults.headers.common["Content-Type"] = "application/json";
+const api = axios.create({
+  baseURL,
+  withCredentials: true,
+  credentials: "include",
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+});
+
+export { baseURL, authApi };
 export default api;
