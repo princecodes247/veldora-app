@@ -1,17 +1,55 @@
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { CgLoadbar } from "react-icons/cg";
-import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
+import Schema from "./components/schema";
 
 export default function CreateProjectModal() {
   const [nextPage, setNextPage] = useState(false);
-  const [usernameOpen, setusernameOpen] = useState(false);
+  const [projectName, setProjectName] = useState("");
+  const [description, setDescription] = useState("");
+  const [tag, setTag] = useState("");
+  const [ProjectType, setType] = useState("Registration Form");
+
+  //Function To Handle Input Changes
+  function StoreData(inputVal, action) {
+    switch (action) {
+      case 'ADD_PROJECT_NAME':
+        setProjectName(inputVal);
+        break;
+      case 'ADD_DESCRIPTION':
+        setDescription(inputVal);
+        break;
+      case 'ADD_TAG':
+        setTag(inputVal);
+        break;
+      case 'ADD_TYPE':
+        setType(inputVal);
+        break;
+      default:
+        setProjectName("");
+        setDescription("");
+        setTag("");
+        setType("Registration Form");
+    }
+  }
 
   return (
     <>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <label htmlFor="my-modal" className="modal">
-        <div className="modal-box bg-base-100 rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto overflow-x-hidden w-11/12">
+      <input
+        type="checkbox"
+        id="my-modal"
+        className="modal-toggle"
+        onClick={() => {
+          StoreData(null, 'CLEAR_ALL');
+          if (nextPage) {
+            setNextPage(!nextPage)
+          }
+        }}
+      />
+      <label htmlFor="my-modal" className="modal" >
+        <label
+          htmlFor=""
+          className="modal-box bg-base-100 rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto overflow-x-hidden w-11/12"
+        >
           <div className="p-6 bg-base-200" /> <br /> <br />
           {/** First Section Of Modal */}
           <div className={`w-full ${!nextPage ? "" : "hidden"}`}>
@@ -30,6 +68,12 @@ export default function CreateProjectModal() {
                   type="text"
                   className="input bg-base-200 focus:outline-none text-sm text-gray-800 rounded-sm h-10 m-0 lg:w-96 w-full"
                   placeholder="Project Name"
+                  value={projectName}
+                  onChange={
+                    (e) => {
+                      StoreData(e.target.value, "ADD_PROJECT_NAME")
+                    }
+                  }
                 />
               </div>
             </div>{" "}
@@ -51,10 +95,15 @@ export default function CreateProjectModal() {
               type="text"
               className="input w-full lg:w-textbox font-poppins bg-base-200 text-gray-800 text-sm focus:outline-none mt-4 rounded-sm"
               placeholder="Project Description"
-            />{" "}
-            <br />
-            <br />
-            {/** Tag Section */}
+              value={description}
+              onChange={
+                (e) => {
+                  StoreData(e.target.value, "ADD_DESCRIPTION")
+                }
+              }
+            /> <br /><br />
+
+            {/**Tag Section */}
             <div className="font-poppins lg:ml-5">
               <h3 className="font-bold text-lg">
                 Tag{" "}
@@ -70,10 +119,15 @@ export default function CreateProjectModal() {
               type="text"
               className="input w-full lg:w-textbox font-poppins bg-base-200 text-gray-800 text-sm focus:outline-none mt-4 rounded-sm"
               placeholder="Project Tag"
-            />{" "}
-            <br />
-            <br />
-            {/** Project Type Section */}
+              value={tag}
+              onChange={
+                (e) => {
+                  StoreData(e.target.value, "ADD_TAG")
+                }
+              }
+            /> <br /><br />
+
+            {/**Project Type Section */}
             <div className="font-poppins lg:ml-5">
               <h3 className="font-bold text-lg">
                 Project Type{" "}
@@ -85,21 +139,15 @@ export default function CreateProjectModal() {
                 Describe the type of project to help you remember.
               </p>
             </div>
-            <select className="input w-full lg:w-textbox font-poppins bg-base-200 text-base-content text-sm focus:outline-none border-gray-500 mt-4 rounded-sm">
-              <option value="Registration Form">Registration Form</option>
-            </select>{" "}
-            <br />
-            <br />
-            <p className="lg:w-textbox text-base-content text-sm w-full">
-              Registration Form: Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry&apos;s standard dummy text ever since the 1500s, when{" "}
-              <br />
-              <br />
-              an unknown printer took a galley of type and scrambled it to make
-              a type specimen book. It has survived not only five centuries, but
-              also the leap into electronic typesetting, remaining essentially
-              unchanged.
+            <select
+              className="input w-full lg:w-textbox font-poppins bg-white text-gray-800 text-sm focus:outline-none border-gray-500 mt-4 rounded-sm"
+            >
+              <option value={ProjectType}>{ProjectType}</option>
+            </select> <br /><br />
+            <p className="lg:w-textbox text-gray-800 text-sm w-full">
+              Registration Form: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when <br /><br />
+
+              an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
           </div>
           {/** First Modal Section End */}
@@ -110,111 +158,7 @@ export default function CreateProjectModal() {
             </h1>{" "}
             <br /> <hr />
             <br />
-            <div
-              className={`border-gray-400 rounded border py-3 lg:w-3/4 w-full transition duration-500 overflow-hidden ${
-                usernameOpen ? "h-fit" : "h-18"
-              }`}
-            >
-              <div className="px-5 py-3 border-b border-gray-300 flex justify-between">
-                <h2 className="font-bold text-xl">
-                  UserName{" "}
-                  <span className="font-normal text-sm text-gray-600">
-                    required
-                  </span>
-                </h2>
-                <div className="flex">
-                  <i className="text-lg rounded-full p-2 flex justify-center items-center transition duration-200 hover:bg-gray-200">
-                    <CgLoadbar />
-                  </i>
-                  <i
-                    className={`text-xl font-bold rounded-full p-2 flex justify-center items-center transition duration-200 hover:bg-gray-200 cursor-pointer ${
-                      usernameOpen ? "rotate-180" : ""
-                    }`}
-                    onClick={() => {
-                      setusernameOpen(!usernameOpen);
-                    }}
-                  >
-                    <IoIosArrowDown />
-                  </i>
-                </div>
-              </div>
-              <div className="flex w-full px-3 py-1 justify-between items-end flex-wrap">
-                <div className="lg:w-sectwo lg:mb-0 mb-1">
-                  <p className="text-gray-900 text-lg ml-4 mb-1">
-                    Filled Name{" "}
-                    <span className="text-sm text-gray-500 font-thin">
-                      required
-                    </span>
-                  </p>
-                  <input
-                    type="text"
-                    className="input w-full border text-gray-800 focus:outline-none text-sm border-gray-300 rounded-sm"
-                    placeholder="UserName"
-                  />
-                </div>
-                <div className="flex w-40 bg-gray-200 p-3 rounded-sm items-center">
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-sm rounded-sm no-animation mr-2"
-                  />
-                  <p className="text-sm">Required</p>
-                </div>
-              </div>{" "}
-              <br />
-              <div className="flex w-full px-3 py-1 justify-between items-end flex-wrap">
-                <div className="w-sectwo lg:mb-0 mb-1">
-                  <p className="text-gray-900 text-lg ml-4 mb-1">Filled Type</p>
-                  <select className="input w-full border text-gray-800 focus:outline-none text-sm border-gray-300 rounded-sm">
-                    <option value="Text">Text</option>
-                  </select>
-                </div>
-                <div className="flex w-40 bg-gray-200 p-3 rounded-sm items-center">
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-sm rounded-sm no-animation mr-2"
-                  />
-                  <p className="text-sm">Unique</p>
-                </div>
-              </div>{" "}
-              <br />
-              <div className="flex w-full px-3 py-1 justify-between items-end flex-wrap">
-                <div className="lg:w-sectwo lg:mb-0 mb-1">
-                  <p className="text-gray-900 text-lg ml-4 mb-1">
-                    Error Message{" "}
-                    <span className="text-sm text-gray-500 font-thin">
-                      required
-                    </span>
-                  </p>
-                  <input
-                    type="text"
-                    className="input w-full border text-gray-800 focus:outline-none text-sm border-gray-300 rounded-sm"
-                    placeholder="Error Message"
-                  />
-                </div>
-                <select className="flex w-40 bg-gray-200 p-3 focus:outline-none rounded-sm items-center">
-                  <option value="Match filled">Match filled</option>
-                </select>
-              </div>
-            </div>{" "}
-            <br />
-            <div className="border border-gray-400 rounded py-3 lg:w-3/4 w-full">
-              <div className="px-5 flex justify-between">
-                <h2 className="font-bold text-xl">
-                  Password{" "}
-                  <span className="font-normal text-sm text-gray-600">
-                    required
-                  </span>
-                </h2>
-                <div className="flex">
-                  <i className="text-lg rounded-full p-2 flex justify-center items-center transition duration-200 hover:bg-gray-200">
-                    <CgLoadbar />
-                  </i>
-                  <i className="text-xl font-bold rounded-full p-2 flex justify-center items-center transition duration-200 hover:bg-gray-200 hover:rotate-180 cursor-pointer">
-                    <IoIosArrowDown />
-                  </i>
-                </div>
-              </div>
-            </div>
+            <Schema />
           </div>
           {/** Second Modal Section End */}
           <br />
@@ -237,6 +181,7 @@ export default function CreateProjectModal() {
             </button>
 
             <button
+
               type="button"
               className={`btn no-animation rounded-sm bg-gray-100 border-0 ${
                 !nextPage ? "hover:bg-gray-200" : "hover:bg-gray-100"
@@ -254,6 +199,7 @@ export default function CreateProjectModal() {
             </button>
 
             <button
+
               type="button"
               className={`btn no-animation rounded-sm bg-gray-100 border-0 hover:bg-gray-200 text-black text-sm p-0 w-40 font-poppins ${
                 nextPage ? "" : "hidden"
@@ -268,7 +214,7 @@ export default function CreateProjectModal() {
               </i>
             </button>
           </div>
-        </div>
+        </label>
       </label>
     </>
   );
