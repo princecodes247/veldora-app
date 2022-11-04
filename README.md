@@ -5,11 +5,12 @@
 - [x] Implement pagination
 - [x] Replace SVGs with react-icons
 - [x] Create modal for create a project
-- [ ] Add ESLint
-- [ ] Add prop-types
+- [x] Add ESLint
+- [x] Add prop-types
 - [ ] Create default error handler for react router
 - [ ] Create Auth Providers
-- [ ] Create Auth pages
+- [x] Create Auth pages
+- [ ] Add logo (to auth pages and dashboard)
 - [ ] Connect to backend
 - [ ] Add extra submission functionalities (i.e edit, delete, etc)
 - [ ] Add extra project functionalities (i.e edit, delete, etc)

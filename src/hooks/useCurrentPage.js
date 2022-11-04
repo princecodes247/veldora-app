@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const useCurrentPage = (pos = 1) => {
   //   const [currentPage, setCurrentPage] = useState(null);
-  //   const location = useLocation();
+  const location = useLocation();
   //   useEffect(() => {
   //     setCurrentPage(location.pathname.split("/")[pos]);
   //   }, []);

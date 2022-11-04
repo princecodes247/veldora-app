@@ -20,7 +20,9 @@ function Table({ isLoading, list = [] }) {
               <th key={key}>{key}</th>
             ))}
 
-            <th />
+            <th>
+              <p />
+            </th>
           </tr>
         </thead>
         <tbody>

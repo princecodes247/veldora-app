@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Drawer from "../Drawer";
 import Header from "../Header";
 import { GlobalModal } from "../modals/GlobalModal";
