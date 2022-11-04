@@ -17,6 +17,7 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/no-noninteractive-tabindex": 0,
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-underscore-dangle": "off"
   }
 }

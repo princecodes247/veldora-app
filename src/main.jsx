@@ -12,6 +12,7 @@ import {
   ProjectSettings,
   Project,
 } from "./pages";
+import { ProvideAuth } from "./hooks";
 
 const queryClient = new QueryClient();
 
@@ -60,7 +61,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <ProvideAuth>
+        <RouterProvider router={router} />
+      </ProvideAuth>
     </QueryClientProvider>
   </React.StrictMode>
 );
