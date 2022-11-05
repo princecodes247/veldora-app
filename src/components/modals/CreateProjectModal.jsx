@@ -2,6 +2,7 @@ import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { CgLoadbar } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
+import { createProject } from "../../api/projects";
 
 export default function CreateProjectModal() {
   const [nextPage, setNextPage] = useState(false);
@@ -11,7 +12,8 @@ export default function CreateProjectModal() {
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
       <label htmlFor="my-modal" className="modal">
-        <div className="modal-box bg-base-100 rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto overflow-x-hidden w-11/12">
+        <label className="modal-box bg-base-100 rounded-md lg:w-lg lg:py-16 lg:px-20 max-w-5xl max-h-4/5 overflow-y-auto overflow-x-hidden w-11/12">
+          <input type="checkbox" className="hidden" name="" id="" />
           <div className="p-6 bg-base-200" /> <br /> <br />
           {/** First Section Of Modal */}
           <div className={`w-full ${!nextPage ? "" : "hidden"}`}>
@@ -259,7 +261,7 @@ export default function CreateProjectModal() {
                 nextPage ? "" : "hidden"
               }`}
               onClick={() => {
-                setNextPage(!nextPage);
+                createProject();
               }}
             >
               Publish{" "}
@@ -268,7 +270,7 @@ export default function CreateProjectModal() {
               </i>
             </button>
           </div>
-        </div>
+        </label>
       </label>
     </>
   );

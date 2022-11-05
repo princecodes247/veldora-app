@@ -17,7 +17,7 @@ const signUp = (name, email, password) => {
   });
 };
 
-export const refreshAccessTokenFn = async () => {
+export const refreshAccessToken = async () => {
   const response = await api.get("auth/refresh");
   return response.data;
 };
@@ -31,7 +31,7 @@ api.interceptors.response.use(
     const errMessage = error.response.data.message;
     if (errMessage.includes("not logged in") && !originalRequest._retry) {
       originalRequest._retry = true;
-      await refreshAccessTokenFn();
+      await refreshAccessToken();
       return api(originalRequest);
     }
     return Promise.reject(error);

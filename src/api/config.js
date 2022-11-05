@@ -8,10 +8,9 @@ const authApi = axios.create({
 });
 const api = axios.create({
   baseURL,
-  withCredentials: true,
-  credentials: "include",
+  // withCredentials: true,
+  // credentials: "include",
   headers: {
-    "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
   },
 });

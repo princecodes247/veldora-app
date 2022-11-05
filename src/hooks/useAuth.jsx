@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import AuthAPI from "../api/auth";
+import useLocalStorage from "./useLocalStorage";
 
 const authContext = createContext();
 
@@ -11,24 +12,31 @@ export const useAuth = () => {
 
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useLocalStorage("user", null);
+  const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken", null);
+  const [accessToken, setAccessToken] = useLocalStorage("accessToken", null);
 
   // Wrap any Auth methods we want to use making sure ...
   // ... to save the user to state.
   const signin = (email, password) => {
     return AuthAPI.signIn(email, password)
       .then((response) => {
-        console.log(response?.data?.user);
+        console.log(response?.data);
         setUser(response?.data?.user);
+        setRefreshToken(response?.data?.refreshToken);
+        setAccessToken(response?.data?.accessToken);
         return response?.data?.user;
       })
       .catch(() => false);
+    // return AuthOperations.signin(email, password);
   };
 
   const signup = (name, email, password) => {
     return AuthAPI.signUp(name, email, password)
       .then((response) => {
-        setUser(response.user);
+        setUser(response?.data?.user);
+        setRefreshToken(response?.data?.refreshToken);
+        setAccessToken(response?.data?.accessToken);
         return response.user;
       })
       .catch(() => false);
@@ -37,6 +45,8 @@ function useProvideAuth() {
   const signout = () => {
     return AuthAPI.signOut().then(() => {
       setUser(false);
+      setRefreshToken(false);
+      setAccessToken(false);
     });
   };
 
