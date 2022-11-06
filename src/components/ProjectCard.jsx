@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Label from "./Label";
 
-function ProjectCard({ name, id, status, desc, submissions, type }) {
+function ProjectCard({ name, _id, status, desc, submissions, type }) {
   return (
-    <Link to={`/projects/${id}`}>
+    <Link to={`/projects/${_id}`}>
       <div className="p-4 flex justify-between rounded-lg overflow-hidden border border-base-300 relative hover:scale-105 transition-all">
         <div className="">
           <div className="flex gap-4">
