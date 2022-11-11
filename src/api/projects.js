@@ -1,7 +1,7 @@
 import api from "./config";
 
 export const getUserProjects = (page, limit) => {
-  return api.get("/api/v1/projects", {
+  return api.get(`/api/v1/projects?page=${page}&limit=${limit}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${JSON.parse(

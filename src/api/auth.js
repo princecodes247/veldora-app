@@ -29,7 +29,7 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     const errMessage = error.response.data.message;
-    if (errMessage.includes("not logged in") && !originalRequest._retry) {
+    if (errMessage.includes("Invalid token") && !originalRequest._retry) {
       originalRequest._retry = true;
       await refreshAccessToken();
       return api(originalRequest);

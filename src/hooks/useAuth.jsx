@@ -89,6 +89,8 @@ function useProvideAuth() {
   // Return the user object and auth methods
   return {
     user,
+    accessToken,
+    refreshToken,
     signin,
     signup,
     signout,
