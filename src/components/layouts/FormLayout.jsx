@@ -27,7 +27,7 @@ function Tabs() {
   );
 }
 
-function FormLayout({ children }) {
+function FormLayout({ children, projectName }) {
   return (
     <DashboardLayout>
       <div className="flex gap-4 items-center mt-1">
@@ -37,7 +37,7 @@ function FormLayout({ children }) {
         >
           <BiArrowBack size={22} />
         </Link>
-        <h1 className="text-xl">Project</h1>
+        <h1 className="text-xl">{projectName ?? "Project"}</h1>
       </div>
       <Tabs />
       {children}

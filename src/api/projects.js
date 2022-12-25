@@ -29,4 +29,15 @@ export const createProject = () => {
   );
 };
 
-export default { getUserProjects, createProject };
+export const getProjectDetails = (projectId, page, limit) => {
+  return api.get(`/api/v1/projects/${projectId}?page=${page}&limit=${limit}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${JSON.parse(
+        localStorage.getItem("accessToken")
+      )}`,
+    },
+  });
+};
+
+export default { getUserProjects, createProject, getProjectDetails };

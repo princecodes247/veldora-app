@@ -26,31 +26,37 @@ export const getUserProjects = (userId = "", page = 1, limit = 10) => {
     // () => test(page, limit, projects)
     () => api.projects.getUserProjects(page, limit)
   );
+
+  console.log(data);
   return {
     isLoading,
-    projects: data?.data,
+    projects: data?.data?.data,
     controls: {
-      totalCount: data?.total,
-      currentPage: data?.page,
-      pageSize: data?.limit,
+      totalCount: data?.data?.total,
+      currentPage: data?.data?.page,
+      pageSize: data?.data?.limit,
     },
     error,
   };
 };
 
-export const getProjectSubmissions = (projectId = "", page = 1, limit = 8) => {
+export const getProjectDetails = (projectId = "", page = 1, limit = 8) => {
   const { isLoading, data, error } = useQuery(
-    ["project-submissions", projectId, { page, limit }],
-    () => test(page, limit, submissions)
+    ["project-details", projectId, { page, limit }],
+    // () => test(page, limit, submissions)
+    () => api.projects.getProjectDetails(projectId, page, limit)
   );
+
+  console.log(data?.data);
 
   return {
     isLoading,
-    submissions: data?.data,
+    project: data?.data?.project,
+    submissions: data?.data?.submissions?.data,
     controls: {
-      totalCount: data?.total,
-      currentPage: data?.page,
-      pageSize: data?.limit,
+      totalCount: data?.data?.submissions?.total,
+      currentPage: data?.data?.submissions?.page,
+      pageSize: data?.data?.submissions?.limit,
     },
     error,
   };

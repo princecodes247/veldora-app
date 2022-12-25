@@ -18,7 +18,7 @@ function Login() {
           e.preventDefault();
           submitForm(email, password);
         }}
-        className="flex flex-col border border-gray-500 gap-4 w-2/6 p-6 py-8 rounded"
+        className="flex flex-col border border-gray-500 gap-4 lg:w-2/6 p-6 py-8 rounded"
       >
         <label>
           <p className="text-sm mb-2">Email</p>
