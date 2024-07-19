@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Header } from "../components";
 
-function Error() {
+function ErrorPage() {
   return (
     <>
       <Header />

@@ -21,7 +21,7 @@ export default function Schema(props) {
                         <i className="text-lg rounded-full p-2 flex justify-center items-center transition duration-200 hover:bg-gray-200">
                             <CgLoadbar />
                         </i>
-                        <i
+                        <button
                             className={`text-xl font-bold rounded-full p-2 flex justify-center items-center transition duration-200 hover:bg-gray-200 cursor-pointer ${usernameOpen ? "rotate-180" : ""
                                 }`}
                             onClick={() => {
@@ -29,7 +29,7 @@ export default function Schema(props) {
                             }}
                         >
                             <IoIosArrowDown />
-                        </i>
+                        </button>
                     </div>
                 </div>
                 <div className="flex w-full px-3 py-1 justify-between items-end flex-wrap">
